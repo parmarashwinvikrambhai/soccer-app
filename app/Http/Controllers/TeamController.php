@@ -12,8 +12,8 @@ class TeamController extends Controller
 {
     public function safe(){
         return response()->json([
-            'message' => 'you are Authenticated',
             'status' => true,
+            'message' => 'you are Authenticated'
         ]);
     }
 
@@ -58,8 +58,8 @@ class TeamController extends Controller
        if(is_null($teams))
        {
         return response()->json([
-            'message'    => 'Not Exist.....',
-            'status'     => false
+            'status'     => false,
+            'message'    => 'Not Exist.....'
         ]);
        }
         return Teams::find($id);
@@ -73,16 +73,16 @@ class TeamController extends Controller
         if(is_null($teams))
         {
               return response()->json([
-                'message'    => 'Not Exist.....',
-                'status'     => false
+                'status'     => false,
+                'message'    => 'Not Exist.....'
             ]);
         }
         else
         {
             $teams = Teams::destroy($id);
             return response()->json([
-                'message'    => 'Record Deleted successfully.....',
-                'status'     => true
+                'status'     => true,
+                'message'    => 'Record Deleted successfully.....'
             ]);
          }
     }
@@ -101,9 +101,9 @@ class TeamController extends Controller
             'logo' => $request->file('logo')->store('public/image')
         ]);
          return response()->json([
-            'message'    => 'Record Update successfully......',
+            'status'     => true,
+            'message'    => 'Record Update successfully......'
             'student'    => $player,
-            'status'     => true
         ]);
     }
 }
