@@ -33,8 +33,8 @@ class PlayerController extends Controller
     {
         $playerData =  Player::all();
         return response()->json([
-            'message'    => 'Data Fetched Successfully.....',
             'status'     => true,
+             'message'    => 'Data Fetched Successfully.....',
             'data'       => $playerData
         ]);
         
@@ -48,8 +48,8 @@ class PlayerController extends Controller
        if(is_null($player))
        {
         return response()->json([
-            'message'    => 'Not Exist.....',
-            'status'     => false
+            'status'     => false,
+            'message'    => 'Not Exist.....'
         ]);
        }
         return Player::find($id);
@@ -63,16 +63,16 @@ class PlayerController extends Controller
         if(is_null($player))
         {
             return response()->json([
+                'status'     =>  true,
                 'message'    => 'Not Exist.....',
-                'status'     =>  true
             ]);
         }
         else
         {
             $player = Player::destroy($id);
             return response()->json([
-                'message'    => 'Deleted Successfully.....',
-                'status'     => true
+                'status'     => true,
+                'message'    => 'Deleted Successfully.....'
             ]);
          }
     }
